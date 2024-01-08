@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2018 The Android Open Source Project
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -12,9 +11,9 @@
   ~ limitations under the License.
   -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@+id/home_dest">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/listSportFragment">
     <fragment
         android:id="@+id/home_dest"
         android:name="com.duongvh19.navcomponent.HomeFragment"
@@ -37,13 +36,12 @@
         tools:layout="@layout/flow_step_one_fragment">
         <argument
             android:name="flowStepNumber"
-            app:argType="integer"
-            android:defaultValue="1"/>
+            android:defaultValue="1"
+            app:argType="integer" />
 
         <action
             android:id="@+id/next_action"
-            app:destination="@+id/flow_step_two_dest">
-        </action>
+            app:destination="@+id/flow_step_two_dest"></action>
     </fragment>
 
     <fragment
@@ -53,13 +51,12 @@
 
         <argument
             android:name="flowStepNumber"
-            app:argType="integer"
-            android:defaultValue="2"/>
+            android:defaultValue="2"
+            app:argType="integer" />
 
         <action
             android:id="@+id/next_action"
-            app:popUpTo="@id/home_dest">
-        </action>
+            app:popUpTo="@id/home_dest"></action>
     </fragment>
 
 
@@ -78,9 +75,31 @@
 
         <argument
             android:name="myarg"
-            android:defaultValue="Android!"/>
+            android:defaultValue="Android!" />
 
         <deepLink app:uri="www.example.com/{myarg}" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/listSportFragment"
+        android:name="com.duongvh19.navcomponent.sport.ListSportFragment"
+        android:label="fragment_list_sport"
+        tools:layout="@layout/fragment_list_sport">
+
+        <action
+            android:id="@+id/action_listSportFragment_to_detailSportFragment"
+            app:destination="@id/detailSportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailSportFragment"
+        android:name="com.duongvh19.navcomponent.sport.DetailSportFragment"
+        android:label="fragment_detail_sport"
+        tools:layout="@layout/fragment_detail_sport">
+        <action
+            android:id="@+id/action_detailSportFragment_to_listSportFragment"
+            app:destination="@id/listSportFragment" />
 
     </fragment>
 </navigation>

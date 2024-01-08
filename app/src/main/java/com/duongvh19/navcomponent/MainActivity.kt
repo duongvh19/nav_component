@@ -59,15 +59,15 @@ class MainActivity : AppCompatActivity() {
 
         // TODO STEP 9.5 - Create an AppBarConfiguration with the correct top-level destinations
         // You should also remove the old appBarConfiguration setup above
-        val drawerLayout : DrawerLayout? = findViewById(R.id.drawer_layout)
+     /*   val drawerLayout : DrawerLayout? = findViewById(R.id.drawer_layout)
         appBarConfiguration = AppBarConfiguration(
                 setOf(R.id.home_dest, R.id.deeplink_dest),
-                drawerLayout)
+                drawerLayout)*/
         // TODO END STEP 9.5
 
-        setupActionBar(navController, appBarConfiguration)
+//        setupActionBar(navController, appBarConfiguration)
 
-        setupNavigationMenu(navController)
+//        setupNavigationMenu(navController)
 
         setupBottomNavMenu(navController)
 
@@ -89,14 +89,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun setupNavigationMenu(navController: NavController) {
+/*    private fun setupNavigationMenu(navController: NavController) {
 
         // In split screen mode, you can drag this view out from the left
         // This does NOT modify the actionbar
         val sideNavView = findViewById<NavigationView>(R.id.nav_view)
         sideNavView?.setupWithNavController(navController)
 
-    }
+    }*/
 
     private fun setupActionBar(navController: NavController,
                                appBarConfig : AppBarConfiguration) {
@@ -109,14 +109,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val retValue = super.onCreateOptionsMenu(menu)
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+//        val navigationView = findViewById<NavigationView>(R.id.nav_view)
         // The NavigationView already has these same navigation items, so we only add
         // navigation items to the menu here if there isn't a NavigationView
-        if (navigationView == null) {
+    /*    if (navigationView == null) {
             menuInflater.inflate(R.menu.overflow_menu, menu)
             return true
         }
-        return retValue
+        return retValue*/
+
+        menuInflater.inflate(R.menu.overflow_menu, menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
